@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+.search-btn {
+	background-color: #9b4428; /* Your chosen button color */
+	color: #ffffff; /* White text */
+	border: none; /* No border */
+	transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.search-btn:hover {
+	background-color: #ab4929; /* Darker shade of the button color for hover state */
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); /* Drop shadow effect */
+}
