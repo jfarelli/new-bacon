@@ -9,7 +9,7 @@ const TopNavBar = () => {
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary" style={{padding: '0'}}>
 			<Container fluid style={{backgroundColor: "#F9BB38", padding: '10px'}}>
-				<Navbar.Brand href="#" style={{color: "#9b4428"}} className='fw-bold fs-4'>Is Your Bacon Resealable</Navbar.Brand>
+				<Navbar.Brand href="#" style={{color: "#9b4428"}} className='fw-bold fs-4'>Is Your Bacon <u>Resealable</u>?</Navbar.Brand>
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
 					<Nav
@@ -36,7 +36,7 @@ const TopNavBar = () => {
 					<Form className="d-flex">
 						<Form.Control
 							type="search"
-							placeholder="Search"
+							placeholder="Search Bacon"
 							className="me-2"
 							aria-label="Search"
 						/>
