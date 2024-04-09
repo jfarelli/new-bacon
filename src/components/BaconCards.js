@@ -1,11 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useParams } from 'react-router-dom';
 
-const BaconCards = () => {
+const BaconCards = ({data}) => {
+
+    let { brandId } = useParams();  
 	return (
-		<Card style={{ width: '18rem' }}>
+		<Card href={brandId} style={{ width: '18rem' }}>
 			<Card.Body className='d-flex flex-column align-items-center'>
-				<Card.Title>Card Title</Card.Title>
+				<Card.Title>{data.companyName}Huh?</Card.Title>
 				<Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
 				<Card.Text className='text-success'>Resealable</Card.Text>
 				<Card.Text className='text-danger'>Not-Resealable</Card.Text>

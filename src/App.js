@@ -1,28 +1,41 @@
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import TopNavbar from './components/TopNavbar';
 import BaconCards from './components/BaconCards';
+import BrandsView from './components/BrandsView';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { fetchBaconData } from './apiCalls';
 
 function App() {
+	const navigate = useNavigate();
+
+	// const [loading, setLoading] = useState(false);
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		// setLoading(true);
+		fetchBaconData().then(({ data }) => {
+			setData(data);
+		});
+	}, []);
+
+	const handleSelectBrand = (brandId) => {
+		navigate(`/bacon/${brandId}`);
+	};
+
 	return (
 		<>
 			<TopNavbar />
 			<Container className="mt-4">
-				<Row className="justify-content-center g-4">
-					{[...Array(13)].map((_, idx) => (
-						<Col
-							key={idx}
-							xs={12}
-							sm={6}
-							md={4}
-							lg={3}
-							className="d-flex justify-content-center"
-						>
-							<BaconCards />
-						</Col>
-					))}
-				</Row>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<BrandsView brands={data} onSelectBrand={handleSelectBrand} />
+						}
+					/>
+					{/* <Route path="/bacon/:brandId" element={<BaconCards data={data} />} /> */}
+				</Routes>
 			</Container>
 		</>
 	);
