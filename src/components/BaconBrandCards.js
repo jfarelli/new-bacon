@@ -16,7 +16,7 @@ const BaconBrandCards = ({ brand, onSelect }) => {
 				<Card.Body>
 					<Card.Img
 						variant="top"
-						src={brand.image}
+						src={`http://localhost:8000/${brand.logo}`}
 						style={{
 							width: '100px',
 							height: '100px',
