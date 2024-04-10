@@ -5,10 +5,10 @@ const BaconBrandCards = ({ brand, onSelect }) => {
 	return (
 		<>
 			<Card
-				key={brand.id}
-				className="border-0 text-center h-80 w-75"
-				onClick={() => onSelect(brand.id)}
-				style={{ cursor: 'pointer', margin: '10px', background: '#FAFAFA'}}
+				key={brand.companyName}
+				className="border-0 text-center h-90 w-75"
+				onClick={() => onSelect(brand.companyName)}
+				style={{ cursor: 'pointer', margin: '10px', background: '#FAFAFA' }}
 			>
 				<Card.Body>
 					<Card.Img
@@ -20,7 +20,9 @@ const BaconBrandCards = ({ brand, onSelect }) => {
 							objectFit: 'contain',
 						}}
 					/>
-					<Card.Title>{brand.companyName}</Card.Title>
+					<Card.Title className="fs-6 text-muted">
+						{brand.companyName}
+					</Card.Title>
 				</Card.Body>
 			</Card>
 		</>

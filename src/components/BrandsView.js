@@ -3,12 +3,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BaconBrandCards from './BaconBrandCards';
 
-function BrandsView({ brands, onSelectBrand }) {
+function BrandsView({ brand, onSelectBrand }) {
 	const [uniqueCompanies, setUniqueCompanies] = useState([]);
 
 	useEffect(() => {
 		let seen = new Set();
-		const filteredCompanies = brands.filter((company) => {
+		const filteredCompanies = brand.filter((company) => {
 			const duplicate = seen.has(company.companyName);
 			seen.add(company.companyName);
 			return !duplicate;
@@ -19,7 +19,7 @@ function BrandsView({ brands, onSelectBrand }) {
         })
 
 		setUniqueCompanies(sortedCompanies);
-	}, [brands]);
+	}, [brand]);
 
 	return (
 		<Row className="justify-content-center g-4">

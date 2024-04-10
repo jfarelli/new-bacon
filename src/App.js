@@ -12,6 +12,7 @@ function App() {
 
 	const [loading, setLoading] = useState(false);
 	const [data, setData] = useState([]);
+	const [uniqueCompanies, setUniqueCompanies] = useState([]);
 
 	useEffect(() => {
 		setLoading(true);
@@ -24,8 +25,23 @@ function App() {
 			});
 	}, []);
 
-	const handleSelectBrand = (brandId) => {
-		navigate(`/bacon/${brandId}`);
+	// useEffect(() => {
+	// 	let seen = new Set();
+	// 	const filteredCompanies = brands.filter((company) => {
+	// 		const duplicate = seen.has(company.companyName);
+	// 		seen.add(company.companyName);
+	// 		return !duplicate;
+	// 	});
+
+	// 	const sortedCompanies = filteredCompanies.sort((a, b) => {
+	// 		return a.companyName.localeCompare(b.companyName);
+	// 	});
+
+	// 	setUniqueCompanies(sortedCompanies);
+	// }, [brands]);
+
+	const handleSelectBrand = (companyName) => {
+		navigate(`/bacon/${companyName}`);
 	};
 
 	return (
@@ -39,11 +55,14 @@ function App() {
 							loading ? (
 								<LoadingSpinner />
 							) : (
-								<BrandsView brands={data} onSelectBrand={handleSelectBrand} />
+								<BrandsView brand={data} onSelectBrand={handleSelectBrand} />
 							)
 						}
 					/>
-					<Route path="/bacon/:brandId" element={<BaconCards data={data} />} />
+					<Route
+						path="/bacon/:companyName"
+						element={<BaconCards data={data} />}
+					/>
 				</Routes>
 			</Container>
 		</>
