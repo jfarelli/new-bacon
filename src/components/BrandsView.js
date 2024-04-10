@@ -14,7 +14,11 @@ function BrandsView({ brands, onSelectBrand }) {
 			return !duplicate;
 		});
 
-		setUniqueCompanies(filteredCompanies);
+        const sortedCompanies = filteredCompanies.sort((a, b) => {
+            return a.companyName.localeCompare(b.companyName);
+        })
+
+		setUniqueCompanies(sortedCompanies);
 	}, [brands]);
 
 	return (

@@ -2,24 +2,21 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const BaconBrandCards = ({ brand, onSelect }) => {
-	console.log('BRAND.ID in BBC', brand.id);
-	console.log('BRAND.LOGO in BBC', brand.logo);
-	console.log('BRAND.COMPANYNAME in BBC', brand.companyName);
 	return (
 		<>
 			<Card
 				key={brand.id}
-				className="bg-light text-center"
+				className="border-0 text-center h-80 w-75"
 				onClick={() => onSelect(brand.id)}
-				style={{ cursor: 'pointer', margin: '10px' }}
+				style={{ cursor: 'pointer', margin: '10px', background: '#FAFAFA'}}
 			>
 				<Card.Body>
 					<Card.Img
 						variant="top"
 						src={`http://localhost:8000/${brand.logo}`}
 						style={{
-							width: '100px',
-							height: '100px',
+							width: '80%',
+							height: '80%',
 							objectFit: 'contain',
 						}}
 					/>
